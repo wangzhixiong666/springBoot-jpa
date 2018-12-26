@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>编辑学生</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>修改用户</h1>
+<form name="studentForm" th:action="@{/edit}"  th:object="${student}" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="hidden" name="id" th:value="*{id}"/>
+    姓名：<label>
+    <input type="text" name="name" th:value="*{name}" placeholder="姓名">
+</label>
+    QQ:<label>
+    <input type="text" name="qq" th:value="*{qq}" placeholder="qq">
+</label>
+    学习类型：<label>
+    <input type="text" name="learn_type" th:value="*{learn_type}" placeholder="学习类型">
+</label>
+    学校：<label>
+    <input type="text" name="school" th:value="*{school}" placeholder="毕业院校"/>
+</label>
+    立愿：<label>
+    <input type="text" name="wish"  th:value="*{wish}" placeholder="期望">
+</label>
+    <input type="submit" value="编辑" />
+</form>
+</body>
+</html>

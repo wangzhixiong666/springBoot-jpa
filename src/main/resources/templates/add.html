@@ -1,0 +1,45 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>添加用户</title>
+</head>
+<body>
+<h1>添加用户</h1>
+<form name="studentForm"  th:action="@{/add}" method="post">
+    姓名：<label>
+    <input type="text" name="name">
+</label><br>
+    QQ:<label>
+    <input type="text" name="qq">
+</label><br>
+    学习类型：<label>
+    <input type="text" name="learn_type">
+</label><br>
+    入学时间：<label>
+    <input type="text" name="entrance_time">
+</label><br>
+    毕业院校：<label>
+    <input type="text" name="school">
+</label><br>
+    日报链接：<label>
+    <input type="text" name="daily_link">
+</label><br>
+    愿望：<label>
+    <input type="text" name="wish">
+</label><br>
+    师兄：<label>
+    <input type="text" name="senior">
+</label><br>
+    方式：<label>
+    <input type="text" name="way">
+</label><br>
+    创建时间：<label>
+    <input type="text" name="create_time">
+</label><br>
+    更新时间：<label>
+    <input type="text" name="update_time">
+</label><br>
+    <input type="submit" value="添加" />
+</form>
+</body>
+</html>

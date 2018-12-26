@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8"/>
+    <title>userList</title>
+</head>
+
+<body class="container">
+<br/>
+<h1>用户列表</h1>
+<br/><br/>
+<form th:action="@{/select}" method="GET">
+    姓名:<label>
+    <input type="text" name="name" placeholder="姓名"/>
+</label>
+    <input type="submit" value="查询"/>
+</form>
+<div class="with:80%">
+    <table class="table table-hover">
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>QQ</th>
+            <th>学习类型</th>
+            <th>入学时间</th>
+            <th>毕业院校</th>
+            <th>日报链接</th>
+            <th>愿望</th>
+            <th>师兄</th>
+            <th>方式</th>
+            <th>表格创建时间</th>
+            <th>表格更新时间</th>
+        </tr>
+            <tr th:each="student,iterStat:${students}">
+                <td th:text="${student.id}">1</td>
+                <td th:text="${student.name}">hah</td>
+                <td th:text="${student.qq}">123456</td>
+                <td th:text="${student.learn_type}">web</td>
+                <td th:text="${#dates.format(student.entrance_time, 'yyyy-MM-dd')}">20181022</td>
+                <td th:text="${student.school}">修真院</td>
+                <td th:text="${student.daily_link}">www.jnshu.com</td>
+                <td th:text="${student.wish}">好好学习</td>
+                <td th:text="${student.senior}">师兄</td>
+                <td th:text="${student.way}">方式</td>
+                <td th:text="${#dates.format(student.create_time, 'yyyy-MM-dd')}">201801105</td>
+                <td th:text="${#dates.format(student.update_time, 'yyyy-MM-dd')}">1201801</td>
+                <td><a th:href="@{/toEdit(id=${student.id})}">编辑</a></td>
+                <td><form th:action="@{/delete(id=${student.id})}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input TYPE="submit" value="删除"></form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-sm-2 control-label">
+        <a href="/toAdd" th:href="@{/toAdd}" class="btn btn-info">add</a>
+    </div>
+</div>
+</body>
+</html>
